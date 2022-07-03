@@ -12,6 +12,7 @@ namespace AddressBook
             {
                 Console.WriteLine("\n1. Contact details in adress book");
                 Console.WriteLine("2. Add new contact");
+                Console.WriteLine("3. Edit Added contact");
 
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("Enter your choice: ");
@@ -22,13 +23,28 @@ namespace AddressBook
                     case 1:
                         Console.WriteLine("Contact details are as shown below");
                         //Passing the input to Constructor parameter through onject
-                        Contactsinfo contactDetails = new Contactsinfo("Vivek", "Kumar", "Somajiguda", "Hyderabad", "Telangana", "viveksinghssm496@gmai.com", "500082", 7004437837);
+                        ContactDetails contactDetails = new ContactDetails("Vivek", "Kumar", "Somajiguda", "Hyderabad", "Telangana", "viveksinghssm496@gmai.com", "500082", 7004437837);
                         contactDetails.DisplayDetails();
                         break;
                     case 2:
                         AddNewContact addNewContact = new AddNewContact();
                         addNewContact.AddContactDetails();
                         addNewContact.DisplayDetails();
+                        break;
+                    case 3:
+                        AddNewContact editContact = new AddNewContact();
+                        editContact.AddContactDetails();
+                        editContact.DisplayDetails();
+
+                        //Asking user if he/she wants to edit contact details or not
+                        Console.WriteLine(" Do you want to Edit contact details? 1: yes/ 0: No");
+                        Console.WriteLine("Enter your Choice: ");
+                        int choice3 = Convert.ToInt32(Console.ReadLine());
+                        if (choice3 == 1)
+                        {
+                            editContact.EditContactDetails();
+                            editContact.DisplayDetails();
+                        }
                         break;
                     default:
                         Console.WriteLine("Enter corect choice");
